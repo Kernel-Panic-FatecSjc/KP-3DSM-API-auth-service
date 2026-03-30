@@ -14,7 +14,7 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    @Value("${jwt.secret:sua_chave_secreta_muito_segura_com_mais_de_256_bits_para_hs256}")
+    @Value("${jwt.secret}")
     private String secretString;
 
     @Value("${jwt.expiration:3600000}")
