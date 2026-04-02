@@ -10,7 +10,12 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./insert.sql:/docker-entrypoint-initdb.d/insert.sql
+      - ./insert.sql:/docker-entrypoint-initdb.d/import.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 2s
+      retries: 10
 
   auth-service:
     build:
@@ -24,7 +29,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=fatec
       - JWT_SECRET=sua_chave_secreta_muito_segura_com_mais_de_256_bits_para_hs256
     depends_on:
-      - db
+       db:
+         condition: service_healthy
 
 volumes:
   db_data:
