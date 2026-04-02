@@ -7,10 +7,9 @@ services:
       MYSQL_DATABASE: bancoauth
       MYSQL_ROOT_PASSWORD: fatec
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
-      # Opcional: inicializa o banco com seu arquivo SQL
       - ./insert.sql:/docker-entrypoint-initdb.d/insert.sql
 
   auth-service:
