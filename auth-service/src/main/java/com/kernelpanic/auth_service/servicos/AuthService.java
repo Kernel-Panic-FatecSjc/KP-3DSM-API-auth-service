@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.kernelpanic.auth_service.dtos.LoginRequestDTO;
 import com.kernelpanic.auth_service.dtos.LoginResponseDTO;
-import com.kernelpanic.auth_service.entidades.UsuarioAuth;
+import com.kernelpanic.auth_service.entidades.Usuario;
 import com.kernelpanic.auth_service.repositorios.UsuarioAuthRepositorio;
 import com.kernelpanic.auth_service.excecoes.personalizado.UsuarioNaoEncontradoException;
 
@@ -23,7 +23,7 @@ public class AuthService {
     private JwtService jwtService;
 
     public LoginResponseDTO loginViaDTO(LoginRequestDTO dto) {
-        UsuarioAuth usuario = repositorio.findByEmail(dto.getEmail())
+        Usuario usuario = repositorio.findByEmail(dto.getEmail())
             .orElseThrow(() -> new UsuarioNaoEncontradoException("Nenhum usuário encontrado com este email"));
 
         if (!passwordEncoder.matches(dto.getSenha(), usuario.getSenha())) {
@@ -35,7 +35,7 @@ public class AuthService {
     }
 
     public String login(String email, String senha) {
-        UsuarioAuth usuario = repositorio.findByEmail(email)
+        Usuario usuario = repositorio.findByEmail(email)
             .orElseThrow(() -> new UsuarioNaoEncontradoException("Nenhum usuário encontrado com este email"));
 
         if (!passwordEncoder.matches(senha, usuario.getSenha())) {
@@ -45,8 +45,9 @@ public class AuthService {
         return jwtService.gerarToken(usuario);
     }
 
-    private LoginResponseDTO converterParaLoginResponseDTO(UsuarioAuth usuario, String token) {
+    private LoginResponseDTO converterParaLoginResponseDTO(Usuario usuario, String token) {
         LoginResponseDTO dto = new LoginResponseDTO();
+        dto.setId(usuario.getId().toString());
         dto.setToken(token);
         dto.setEmail(usuario.getEmail());
         dto.setCargo(usuario.getCargo());

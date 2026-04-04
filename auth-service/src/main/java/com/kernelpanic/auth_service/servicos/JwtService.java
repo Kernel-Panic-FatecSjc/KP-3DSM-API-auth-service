@@ -6,7 +6,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.kernelpanic.auth_service.entidades.UsuarioAuth;
+import com.kernelpanic.auth_service.entidades.Usuario;
 
 import javax.crypto.SecretKey;
 import java.util.Date;
@@ -25,7 +25,7 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String gerarToken(UsuarioAuth usuario) {
+    public String gerarToken(Usuario usuario) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expirationTime);
 
