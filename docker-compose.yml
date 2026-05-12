@@ -5,7 +5,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: bancoauth
-      MYSQL_ROOT_PASSWORD: fatec
+      MYSQL_ROOT_PASSWORD: senha
     ports:
       - "3307:3306"
     volumes:
