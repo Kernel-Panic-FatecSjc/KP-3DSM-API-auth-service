@@ -10,13 +10,11 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./insert.sql:/docker-entrypoint-initdb.d/import.sql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 5s
       timeout: 2s
       retries: 10
-
   auth-service:
     build:
       context: ./auth-service
@@ -26,11 +24,10 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/bancoauth?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=fatec
+      - SPRING_DATASOURCE_PASSWORD=senha
       - JWT_SECRET=sua_chave_secreta_muito_segura_com_mais_de_256_bits_para_hs256
     depends_on:
-       db:
-         condition: service_healthy
-
+      db:
+        condition: service_healthy
 volumes:
   db_data:
