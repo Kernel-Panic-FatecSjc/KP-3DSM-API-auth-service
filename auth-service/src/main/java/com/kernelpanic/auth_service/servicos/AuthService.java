@@ -51,6 +51,7 @@ public class AuthService {
         dto.setToken(token);
         dto.setEmail(usuario.getEmail());
         dto.setCargo(usuario.getCargo());
+        dto.setNome(usuario.getNome());
         return dto;
     }
 }
