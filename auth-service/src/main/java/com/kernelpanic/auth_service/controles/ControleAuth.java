@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kernelpanic.auth_service.dtos.LoginRequestDTO;
 import com.kernelpanic.auth_service.dtos.LoginResponseDTO;
+import com.kernelpanic.auth_service.entidades.Usuario;
 import com.kernelpanic.auth_service.servicos.AuthService;
 
 @RestController
@@ -22,5 +23,11 @@ public class ControleAuth {
     public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequest) {
         LoginResponseDTO response = authService.loginViaDTO(loginRequest);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/cadastro")
+    public ResponseEntity<Void> cadastro(@RequestBody Usuario usuario) {
+        authService.cadastrar(usuario);
+        return ResponseEntity.ok().build();
     }
 }
