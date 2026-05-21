@@ -42,4 +42,48 @@ VALUES
     NULL,
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP
+),
+(
+    'Carlos Mendes',
+    'carlos.mendes@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_GESTOR',
+    true,
+    '8500',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Ana Lima',
+    'ana.lima@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_FINANCEIRO',
+    true,
+    '7200',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Rafael Costa',
+    'rafael.costa@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_PROFISSIONAL',
+    true,
+    '5500',
+    1,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Juliana Souza',
+    'juliana.souza@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_PROFISSIONAL',
+    true,
+    '5800',
+    1,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
 );
