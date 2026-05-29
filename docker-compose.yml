@@ -16,6 +16,8 @@ services:
       interval: 5s
       timeout: 2s
       retries: 10
+    networks:
+      - kp-network
 
   auth-service:
     build:
@@ -26,11 +28,17 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/bancoauth?createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=fatec
+      - SPRING_DATASOURCE_PASSWORD=senha
       - JWT_SECRET=sua_chave_secreta_muito_segura_com_mais_de_256_bits_para_hs256
     depends_on:
        db:
          condition: service_healthy
+    networks:
+      - kp-network
 
 volumes:
   db_data:
+
+networks:
+  kp-network:
+    external: true
