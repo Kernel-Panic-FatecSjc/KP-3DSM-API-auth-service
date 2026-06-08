@@ -1,0 +1,89 @@
+INSERT IGNORE INTO usuario (
+    nome,
+    email,
+    senha,
+    cargo,
+    ativo,
+    salario,
+    gerente_id,
+    data_criacao,
+    data_atualizacao
+)
+VALUES
+(
+    'Gestor',
+    'gestor@kernelpanic.com',
+    '$2a$10$16e598HFycun0McHP9SRteQgnvbqhzZNlFkhEoIcmjXnrRRVW5p5q',
+    'ROLE_GESTOR',
+    true,
+    '100',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Financeiro',
+    'financeiro@kernelpanic.com',
+    '$2a$10$16e598HFycun0McHP9SRteQgnvbqhzZNlFkhEoIcmjXnrRRVW5p5q',
+    'ROLE_FINANCEIRO',
+    true,
+    '100',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Profissional',
+    'profissional@kernelpanic.com',
+    '$2a$10$16e598HFycun0McHP9SRteQgnvbqhzZNlFkhEoIcmjXnrRRVW5p5q',
+    'ROLE_PROFISSIONAL',
+    true,
+    '100',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Carlos Mendes',
+    'carlos.mendes@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_GESTOR',
+    true,
+    '8500',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Ana Lima',
+    'ana.lima@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_FINANCEIRO',
+    true,
+    '7200',
+    NULL,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Rafael Costa',
+    'rafael.costa@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_PROFISSIONAL',
+    true,
+    '5500',
+    1,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+),
+(
+    'Juliana Souza',
+    'juliana.souza@kernelpanic.com',
+    '$2a$10$W3ZXrhgR5l4qiui8FVIsIOJpwpX5A59Thsr8Ugq2BAvuM5XXTde1W',
+    'ROLE_PROFISSIONAL',
+    true,
+    '5800',
+    1,
+    CURRENT_TIMESTAMP,
+    CURRENT_TIMESTAMP
+);
