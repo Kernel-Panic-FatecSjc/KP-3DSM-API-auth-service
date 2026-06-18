@@ -9,7 +9,7 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - auth_mysql_data:/var/lib/mysql
       - ./insert.sql:/docker-entrypoint-initdb.d/import.sql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
@@ -37,7 +37,8 @@ services:
       - kp-network
 
 volumes:
-  db_data:
+  auth_mysql_data:
+    name: kp-3dsm-api-auth-service_db_data
 
 networks:
   kp-network:
